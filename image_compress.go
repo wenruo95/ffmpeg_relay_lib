@@ -53,10 +53,8 @@ func CompressImage(ffmpegPath string, inputPath string, outputPath string, timeo
 func ExecCmd(param string, stdout io.Writer, stderr io.Writer) (*exec.Cmd, error) {
 	cmd := exec.Command("/bin/bash", "-c", param)
 	cmd.SysProcAttr = &syscall.SysProcAttr{Setpgid: true}
-
-	// 将标准输出和标准错误都写到log中
 	cmd.Stdout = stdout
-	cmd.Stderr = stdout
+	cmd.Stderr = stderr
 
 	if err := cmd.Start(); err != nil {
 		return nil, err
