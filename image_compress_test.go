@@ -15,9 +15,8 @@ import "testing"
 func TestCompressImage(t *testing.T) {
 	var (
 		ffmpegPath = "/usr/local/bin/ffmpeg"
-		inputPath  = "/Users/zemanzeng/Desktop/uploads/" + "diaozhui1.jpg"
-		//outputPath = "/Users/zemanzeng/Desktop/uploads/" + "diaozhui1_small.jpg"
-		outputPath = "./" + "diaozhui1_small.jpg"
+		inputPath  = "./example/" + "example.jpeg"
+		outputPath = "./example/" + "example_small.jpeg"
 	)
 
 	if err := CompressImage(ffmpegPath, inputPath, outputPath, 3); err != nil {
